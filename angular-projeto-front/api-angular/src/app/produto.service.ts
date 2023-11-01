@@ -1,4 +1,3 @@
-import { ProdutoService } from './produto.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from './modelo/Produto';
