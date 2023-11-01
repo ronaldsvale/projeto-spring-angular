@@ -15,4 +15,16 @@ export class ProdutoService {
   selecionar():Observable<Produto[]>{
     return this.http.get<Produto[]>(this.url);
   }
+
+  cadastrar(obj:Produto):Observable<Produto>{
+    return this.http.post<Produto>(this.url, obj);
+  }
+
+  editar(obj:Produto):Observable<Produto>{
+    return this.http.put<Produto>(this.url, obj);
+  }
+
+  remover(codigo:number):Observable<void>{
+    return this.http.delete<void>(this.url + '/' + codigo);
+  }
 }

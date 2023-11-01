@@ -1,19 +1,18 @@
 <form>
   <img src="assets/produto.png">
 
-  <input type="text" placeholder="Produto" class="form-control">
-  <input type="number" placeholder="Código do Produto" class="form-control">
-  <input type="text" placeholder="Departamento" class="form-control">
+  <input type="text" placeholder="Produto" class="form-control" name="produto" [(ngModel)]="produto.Produto">
+  <input type="number" placeholder="Código do Produto" class="form-control" name="codigoDoProduto" [(ngModel)]="produto.codigoDoProduto">
+  <input type="text" placeholder="Departamento" class="form-control" name="departamento" [(ngModel)]="produto.departamento">
 
-  <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary">
-  <input type="button" value="Listar"    *ngIf="!btnCadastro" class="btn btn-primary">
-  <input type="button" value="Alterar/Editar" *ngIf="!btnCadastro" class="btn btn-warning">
-  <input type="button" value="Remover"   *ngIf="!btnCadastro" class="btn btn-danger">
-  <input type="button" value="Cancelar"  *ngIf="!btnCadastro" class="btn btn-secondary">
+  <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary" (click)="cadastrar()">
+  <input type="button" value="Editar"    *ngIf="!btnCadastro" class="btn btn-warning" (click)="editar()">
+  <input type="button" value="Remover"   *ngIf="!btnCadastro" class="btn btn-danger" (click)="remover()">
+  <input type="button" value="Cancelar"  *ngIf="!btnCadastro" class="btn btn-secondary" (click)="cancelar()">
 
 </form>
 
-<table class="table">
+<table class="table" *ngIf="tabela">
   <thead>
     <tr>
       <th>Id</th>
@@ -24,6 +23,14 @@
     </tr>
   </thead>
 
-  <tbody></tbody>
+  <tbody>
+    <tr *ngFor="let c of produtos; index as id">
+      <td>{{id+1}}</td>
+      <td>{{c.produto}}</td>
+      <td>{{c.codigoDoProduto}}</td>
+      <td>{{c.departamento}}</td>
+      <td><button class="btn btn-success" (click)="selecionarProduto(id)">Selecionar</button></td>
+    </tr>
+  </tbody>
 </table>
 

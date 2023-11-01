@@ -7,6 +7,15 @@ import { Produto } from './modelo/Produto';
   providedIn: 'root'
 })
 export class ProdutoService {
+  remover(id: number) {
+    throw new Error('Método não implementado.');
+  }
+  editar(produto: Produto) {
+    throw new Error('Método não implementado.');
+  }
+  cadastrar(produto: Produto) {
+    throw new Error('Método não implementado.');
+  }
 
   api = 'http://localhost:4200/produto';
 
