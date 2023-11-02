@@ -1,5 +1,5 @@
 import { ProdutoService } from './../produto.service';
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Produto } from '../modelo/Produto';
 
 @Component({
@@ -7,7 +7,7 @@ import { Produto } from '../modelo/Produto';
   templateUrl: './principalProduto.component.html',
   styleUrls: ['./principalProduto.component.css']
 })
-export class PrincipalProdutoComponent {
+export class PrincipalProdutoComponent implements OnInit{
 
   produto = new Produto();
 
