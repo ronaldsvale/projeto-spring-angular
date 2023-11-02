@@ -29,17 +29,10 @@ export class PrincipalProdutoComponent implements OnInit{
   }
 
 
-  cadastrar():void{
-    this.servico.cadastrar(this.produto)
-    .subscribe((retorno: Produto) => {
-
-      this.produtos.push(retorno);
-
-      this.produto = new Produto();
-
-      alert ('Produto cadastrado com sucesso!');
-
-    });
+  cadastrar(): void {
+    this.servico.cadastrar(this.produto);
+    this.produto = new Produto();
+    alert('Produto cadastrado com sucesso!');
   }
 
   selecionarProduto(posicao:number):void{
@@ -51,50 +44,24 @@ export class PrincipalProdutoComponent implements OnInit{
     this.tabela = false;
   }
 
-  editar():void{
-
-    this.servico.editar(this.produto)
-    .subscribe((retorno: Produto) => {
-
-      let posicao = this.produtos.findIndex(obj => {
-        return obj.id == retorno.id;
-      });
-
-      this.produtos[posicao] = retorno;
-
-      this.produto = new Produto();
-
-      this.btnCadastro = true;
-
-      this.tabela = true;
-
-      alert('Produto editado com sucesso!');
-
-
-    });
+  editar(): void {
+    this.servico.editar(this.produto);
+    let posicao = this.produtos.findIndex(obj => obj.id === this.produto.id);
+    this.produtos[posicao] = this.produto;
+    this.produto = new Produto();
+    this.btnCadastro = true;
+    this.tabela = true;
+    alert('Produto editado com sucesso!');
   }
 
-  remover():void{
-
-    this.servico.remover(this.produto.id)
-    .subscribe((retorno: Produto) => {
-
-      let posicao = this.produtos.findIndex(obj => {
-        return obj.id == this.produto.id;
-      });
-
-      this.produtos.splice(posicao, 1);
-
-      this.produto = new Produto();
-
-      this.btnCadastro = true;
-
-      this.tabela = true;
-
-      alert('Produto removido com sucesso!');
-
-
-    });
+  remover(): void {
+    this.servico.remover(this.produto.id);
+    let posicao = this.produtos.findIndex(obj => obj.id === this.produto.id);
+    this.produtos.splice(posicao, 1);
+    this.produto = new Produto();
+    this.btnCadastro = true;
+    this.tabela = true;
+    alert('Produto removido com sucesso!');
   }
 
   cancelar():void{
