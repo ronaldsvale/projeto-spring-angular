@@ -20,10 +20,14 @@ export class PrincipalProdutoComponent implements OnInit{
   constructor(private servico:ProdutoService){}
 
 
-  selecionar():void{
-    this.servico.buscarProduto()
-    .subscribe(retorno => this.produtos = retorno);
+  selecionar(): void {
+    const produtosObservable = this.servico.buscarProduto();
+
+    produtosObservable.subscribe((retorno: Produto[]) => {
+      this.produtos = retorno;
+    });
   }
+
 
   cadastrar():void{
     this.servico.cadastrar(this.produto)

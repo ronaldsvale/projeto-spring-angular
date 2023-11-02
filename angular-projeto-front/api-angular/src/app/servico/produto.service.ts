@@ -12,16 +12,16 @@ export class ProdutoService {
 
   constructor(private http:HttpClient) { }
 
-  selecionar():Observable<Produto[]>{
+  buscarProduto():Observable<Produto[]>{
     return this.http.get<Produto[]>(this.url);
   }
 
-  cadastrar(obj:Produto):Observable<Produto>{
-    return this.http.post<Produto>(this.url, obj);
+  cadastrar(produto:Produto):Observable<Produto>{
+    return this.http.post<Produto>(this.url, produto);
   }
 
-  editar(obj:Produto):Observable<Produto>{
-    return this.http.put<Produto>(this.url, obj);
+  editar(produto:Produto):Observable<Produto>{
+    return this.http.put<Produto>(this.url, produto);
   }
 
   remover(codigo:number):Observable<void>{

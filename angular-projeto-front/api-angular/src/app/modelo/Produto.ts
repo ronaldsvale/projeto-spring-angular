@@ -4,4 +4,5 @@ export class Produto{
   produto:string = '';
   codigoDoProduto:number = 0;
   departamento:string = '';
+
 }

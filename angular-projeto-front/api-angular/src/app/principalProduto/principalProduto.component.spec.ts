@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PrincipalProdutoComponent } from './principalProduto.component';
 
 describe('PrincipalProdutoComponent', () => {
@@ -20,10 +19,10 @@ describe('PrincipalProdutoComponent', () => {
   });
 });
 function beforeEach(arg0: () => void) {
-  throw new Error('Function not implemented.');
+  throw new Error('Função não implementada.');
 }
 
 function expect(component: PrincipalProdutoComponent) {
-  throw new Error('Function not implemented.');
+  throw new Error('Função não implementada.');
 }
 
