@@ -1,9 +1,9 @@
 <form>
   <img src="assets/produto.png">
 
-  <input type="text" placeholder="Produto" class="form-control" name="produto" [(ngModel)]="produto.produto">
-  <input type="number" placeholder="Código do Produto" class="form-control" name="codigoDoProduto" [(ngModel)]="produto.codigoDoProduto">
-  <input type="text" placeholder="Departamento" class="form-control" name="departamento" [(ngModel)]="produto.departamento">
+  <input type="text" placeholder="Produto" class="form-control" name="produto" ngModel>
+  <input type="number" placeholder="Código do Produto" class="form-control" name="codigoDoProduto" ngModel>
+  <input type="text" placeholder="Departamento" class="form-control" name="departamento" ngModel>
 
   <input type="button" value="Cadastrar" *ngIf="btnCadastro" class="btn btn-primary" (click)="cadastrar()">
   <input type="button" value="Editar"    *ngIf="!btnCadastro" class="btn btn-warning" (click)="editar()">
